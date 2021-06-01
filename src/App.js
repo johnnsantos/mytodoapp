@@ -1,4 +1,5 @@
-import Header from './components/Header'
+import Header from './components/Header';
+import NavBar from './components/NavBar';
 import { GlobalStyle } from './GlobalStyle';
 
 const App = () => {
@@ -6,6 +7,7 @@ const App = () => {
     <>
       <GlobalStyle />
       <Header />
+      <NavBar />
     </>
   );
 }

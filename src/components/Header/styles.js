@@ -9,7 +9,6 @@ display: flex;
 flex-flow: column nowrap;
 align-items: center;
 justify-content: space-around;
-box-shadow: 1px 1px 10px gray;
 min-height: 25vh;
 font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 
