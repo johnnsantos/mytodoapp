@@ -8,7 +8,6 @@ display: flex;
 flex-flow: row nowrap;
 align-items: center;
 justify-content: space-between;
-
 `
 
 export const MenuButton = styled.button`
@@ -33,5 +32,10 @@ svg {
 
 &:active {
 	background-color: #cacaca;
+}
+
+&:nth-child(2) {
+	border-left: 1px solid #bbbbbb;
+	border-right: 1px solid #bbbbbb;
 }
 `

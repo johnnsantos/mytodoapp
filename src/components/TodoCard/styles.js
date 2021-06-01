@@ -1,7 +1,12 @@
 import styled from 'styled-components'
 
+let r = Math.floor(Math.random() * 256);
+let g = Math.floor(Math.random() * 256);
+let b = Math.floor(Math.random() * 256);
+
 export const TodoBody = styled.div`
-background-color: #cccccc;
+background-color: #cacaca;
+border: 4px solid rgba(${r}, ${g}, ${b}, 0.5);
 padding: 5% 4%;
 display: flex;
 flex-direction: row;
@@ -32,5 +37,6 @@ width: 90%;
 &:hover {
 	color: #d32020;
 }
+
 }
 `

@@ -1,8 +1,12 @@
 import TodoCard from '../TodoCard'
+import ConfirmationModal from '../ConfirmationModal'
 
 const TodosContainer = () => {
 	return (
-		<TodoCard />
+		<>
+			<ConfirmationModal />
+			<TodoCard />
+		</>
 	)
 }
 
