@@ -1,6 +1,7 @@
-import Header from './components/Header';
-import NavBar from './components/NavBar';
-import { GlobalStyle } from './GlobalStyle';
+import Header from './components/Header'
+import NavBar from './components/NavBar'
+import TodosContainer from './components/TodosContainer'
+import { GlobalStyle } from './GlobalStyle'
 
 const App = () => {
   return (
@@ -8,6 +9,7 @@ const App = () => {
       <GlobalStyle />
       <Header />
       <NavBar />
+      <TodosContainer />
     </>
   );
 }
