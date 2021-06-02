@@ -2,13 +2,22 @@ import Header from "./components/Header";
 import NavBar from "./components/NavBar";
 import TodosContainer from "./components/TodosContainer";
 import { GlobalStyle } from "./GlobalStyle";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { persistTodos, retrieveTodos } from './utils'
 
 const App = () => {
     const [todo, setTodo] = useState("");
     const [dataTodos, setDataTodos] = useState([]);
 
-    const markDoneTodo = (id) => {
+    useEffect(() => {
+        retrieveTodos(setDataTodos)
+    }, [])
+
+    useEffect(() => {
+        persistTodos(dataTodos)
+    }, [dataTodos])
+
+    const toggleDoneTodo = (id) => {
         const foundTodo = dataTodos.findIndex((todo) => todo.id === id);
         const newState = [...dataTodos];
         newState[foundTodo] = {
@@ -42,7 +51,7 @@ const App = () => {
             />
             <NavBar />
             <TodosContainer
-                markDoneTodo={markDoneTodo}
+                toggleDoneTodo={toggleDoneTodo}
                 deleteTodo={deleteTodo}
                 dataTodos={dataTodos}
             />

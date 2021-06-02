@@ -4,7 +4,7 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import ConfirmationModal from "../ConfirmationModal";
 import { useState, useEffect } from "react";
 
-const TodoCard = ({ id, name, checked, markDoneTodo, deleteTodo }) => {
+const TodoCard = ({ id, name, checked, toggleDoneTodo, deleteTodo }) => {
     const [modalOpen, toggleModal] = useState(false);
     const [confirm, setConfirm] = useState(false);
 
@@ -25,7 +25,7 @@ const TodoCard = ({ id, name, checked, markDoneTodo, deleteTodo }) => {
                     type="checkbox"
                     className="check-todo"
                     checked={checked}
-                    onClick={() => markDoneTodo(id)}
+                    onClick={() => toggleDoneTodo(id)}
                 />
                 <span className="todo-title">{name}</span>
                 <button className="delete-todo" onClick={() => toggleModal(true)}>

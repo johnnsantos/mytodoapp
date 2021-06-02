@@ -1,6 +1,6 @@
 import TodoCard from "../TodoCard";
 
-const TodosContainer = ({ markDoneTodo, deleteTodo, dataTodos }) => {
+const TodosContainer = ({ toggleDoneTodo, deleteTodo, dataTodos }) => {
 	return (
 		<>
 			{dataTodos.map((todo) => (
@@ -9,7 +9,7 @@ const TodosContainer = ({ markDoneTodo, deleteTodo, dataTodos }) => {
 					key={todo.id}
 					name={todo.title}
 					checked={todo.done}
-					markDoneTodo={markDoneTodo}
+					toggleDoneTodo={toggleDoneTodo}
 					deleteTodo={deleteTodo}
 				/>
 			))}
