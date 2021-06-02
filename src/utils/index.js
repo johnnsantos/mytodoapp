@@ -1,21 +1,36 @@
 const getTodosFromLocalStorage = () => {
-	const data = localStorage.getItem("todos") !== null
-		? JSON.parse(localStorage.getItem("todos"))
-		: [];
-	return data;
-}
-
-export const persistTodos = (dataTodos) => {
-	if (dataTodos !== []) {
-		const updatedTodos = [...getTodosFromLocalStorage(), dataTodos];
-		localStorage.removeItem("todos");
-		localStorage.setItem("todos", JSON.stringify(updatedTodos));
+	const retrievedTodos = localStorage.getItem("todos");
+	if (retrievedTodos !== null) {
+		return JSON.parse(retrievedTodos);
 	}
-}
+	return [];
+};
 
 export const retrieveTodos = (setDataTodos) => {
 	const data = getTodosFromLocalStorage();
 	if (data !== []) {
-		setDataTodos(data)
+		setDataTodos(data);
 	}
+};
+
+
+export const persistTodos = (dataTodos) => {
+	let todosFromLocalStorage = getTodosFromLocalStorage();
+
+	let alreadySavedIDS = new Set(dataTodos.map((todo) => todo.id));
+
+	let updatedTodos = [
+		...dataTodos,
+		...todosFromLocalStorage.filter((todo) => !alreadySavedIDS.has(todo.id)),
+	];
+
+	localStorage.setItem("todos", JSON.stringify(updatedTodos));
+};
+
+export const removeFromPersist = (id) => {
+	let todosFromLocalStorage = getTodosFromLocalStorage();
+
+	let updatedTodos = todosFromLocalStorage.filter((todo) => todo.id !== id)
+
+	localStorage.setItem("todos", JSON.stringify(updatedTodos));
 }

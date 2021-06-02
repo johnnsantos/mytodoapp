@@ -3,7 +3,7 @@ import NavBar from "./components/NavBar";
 import TodosContainer from "./components/TodosContainer";
 import { GlobalStyle } from "./GlobalStyle";
 import { useState, useEffect } from "react";
-import { persistTodos, retrieveTodos } from './utils'
+import { persistTodos, retrieveTodos, removeFromPersist } from './utils'
 
 const App = () => {
     const [todo, setTodo] = useState("");
@@ -32,13 +32,16 @@ const App = () => {
         if (confirmDelete) {
             const updatedTodos = dataTodos.filter((item) => item.id !== id);
             setDataTodos(updatedTodos);
+            removeFromPersist(id)
         }
     };
 
     const saveNewTodo = (e) => {
         e.preventDefault();
-        setDataTodos([{ id: Date.now(), title: todo, done: false }, ...dataTodos]);
-        setTodo("");
+        if (todo.trim() !== '') {
+            setDataTodos([{ id: Date.now(), title: todo, done: false }, ...dataTodos]);
+            setTodo("");
+        }
     };
 
     return (
