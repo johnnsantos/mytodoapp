@@ -1,13 +1,20 @@
-import TodoCard from '../TodoCard'
-import ConfirmationModal from '../ConfirmationModal'
+import TodoCard from "../TodoCard";
 
-const TodosContainer = () => {
+const TodosContainer = ({ markDoneTodo, deleteTodo, dataTodos }) => {
 	return (
 		<>
-			<ConfirmationModal />
-			<TodoCard />
+			{dataTodos.map((todo) => (
+				<TodoCard
+					id={todo.id}
+					key={todo.id}
+					name={todo.title}
+					checked={todo.done}
+					markDoneTodo={markDoneTodo}
+					deleteTodo={deleteTodo}
+				/>
+			))}
 		</>
-	)
-}
+	);
+};
 
-export default TodosContainer
+export default TodosContainer;

@@ -1,15 +1,39 @@
-import { TodoBody } from './styles'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTrash } from '@fortawesome/free-solid-svg-icons'
+import { TodoBody } from "./styles";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import ConfirmationModal from "../ConfirmationModal";
+import { useState, useEffect } from "react";
 
-const TodoCard = () => {
-	return (
-		<TodoBody>
-			<input type="checkbox" className='check-todo' />
-			<span className='todo-title'>Nome da tarefa</span>
-			<button className='delete-todo'><FontAwesomeIcon icon={faTrash} /></button>
-		</TodoBody>
-	)
-}
+const TodoCard = ({ id, name, checked, markDoneTodo, deleteTodo }) => {
+    const [modalOpen, toggleModal] = useState(false);
+    const [confirm, setConfirm] = useState(false);
 
-export default TodoCard
+    useEffect(() => {
+        deleteTodo(id, confirm);
+    }, [confirm, deleteTodo, id]);
+
+    return (
+        <>
+            <ConfirmationModal
+                open={modalOpen}
+                toggle={() => toggleModal(!modalOpen)}
+                confirm={() => setConfirm(true)}
+            />
+            <TodoBody done={checked}>
+                <input
+                    readOnly
+                    type="checkbox"
+                    className="check-todo"
+                    checked={checked}
+                    onClick={() => markDoneTodo(id)}
+                />
+                <span className="todo-title">{name}</span>
+                <button className="delete-todo" onClick={() => toggleModal(true)}>
+                    <FontAwesomeIcon icon={faTrash} />
+                </button>
+            </TodoBody>
+        </>
+    );
+};
+
+export default TodoCard;

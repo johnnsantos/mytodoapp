@@ -29,6 +29,13 @@ font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida San
 		font-size: 1.8rem;
 	}
 }
+
+form {
+	width: 100%;
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: center;
+}
 `
 
 export const StyledInput = styled.input`
@@ -51,6 +58,7 @@ border-radius: 0.3rem;
 font-size: 1.15rem;
 font-weight: bold;
 cursor: pointer;
+margin-top: 1rem;
 
 &:hover{
 background-color:#00b62d;	
