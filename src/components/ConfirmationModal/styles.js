@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const ModalBody = styled.div`
-display: none;
+display: ${props => props.open ? "block" : "none"};
 position: absolute;
 width: 100%;
 height: 100%;

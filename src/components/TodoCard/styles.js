@@ -1,12 +1,7 @@
 import styled from 'styled-components'
 
-let r = Math.floor(Math.random() * 256);
-let g = Math.floor(Math.random() * 256);
-let b = Math.floor(Math.random() * 256);
-
 export const TodoBody = styled.div`
-background-color: #cacaca;
-border: 4px solid rgba(${r}, ${g}, ${b}, 0.5);
+background-color: ${props => props.done ? "#b0dcf0" : "#d1d1d1"};
 padding: 5% 4%;
 display: flex;
 flex-direction: row;
@@ -24,6 +19,7 @@ width: 90%;
 
 .todo-title {
 	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	text-decoration: ${props => props.done ? "line-through" : "none"};
 }
 
 .delete-todo {
