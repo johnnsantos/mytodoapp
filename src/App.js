@@ -52,7 +52,7 @@ const App = () => {
                 change={(e) => setTodo(e.target.value)}
                 submit={(e) => saveNewTodo(e)}
             />
-            <NavBar />
+            <NavBar setDataTodos={setDataTodos} />
             <TodosContainer
                 toggleDoneTodo={toggleDoneTodo}
                 deleteTodo={deleteTodo}

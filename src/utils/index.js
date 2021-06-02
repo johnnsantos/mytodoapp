@@ -13,7 +13,6 @@ export const retrieveTodos = (setDataTodos) => {
 	}
 };
 
-
 export const persistTodos = (dataTodos) => {
 	let todosFromLocalStorage = getTodosFromLocalStorage();
 
@@ -30,7 +29,32 @@ export const persistTodos = (dataTodos) => {
 export const removeFromPersist = (id) => {
 	let todosFromLocalStorage = getTodosFromLocalStorage();
 
-	let updatedTodos = todosFromLocalStorage.filter((todo) => todo.id !== id)
+	let updatedTodos = todosFromLocalStorage.filter((todo) => todo.id !== id);
 
 	localStorage.setItem("todos", JSON.stringify(updatedTodos));
-}
+};
+
+export const filterTodos = (setDataTodos, filterType) => {
+	let todosFromLocalStorage = getTodosFromLocalStorage();
+	let filteredTodos = [];
+
+	switch (filterType) {
+		case "all":
+			filteredTodos = todosFromLocalStorage;
+			setDataTodos(filteredTodos);
+			break;
+
+		case "todo":
+			filteredTodos = todosFromLocalStorage.filter((todo) => !todo.done);
+			setDataTodos(filteredTodos);
+			break;
+
+		case "done":
+			filteredTodos = todosFromLocalStorage.filter((todo) => todo.done);
+			setDataTodos(filteredTodos);
+			break;
+
+		default:
+			break;
+	}
+};

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const ModalBody = styled.div`
 display: ${props => props.open ? "block" : "none"};
-position: absolute;
+position: fixed;
 width: 100%;
 height: 100%;
 background-color: #000000d1;
@@ -14,7 +14,7 @@ transition: opacity ease-in-out 0.5s;
 `
 
 export const PopUp = styled.div`
-position: relative;
+position: absolute;
 display: flex;
 flex-flow: column nowrap;
 align-items: center;
