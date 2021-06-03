@@ -2,7 +2,7 @@
 
 ### Link de Deploy no Vercel
 
-Para visualizar a aplicação rodando online visite: [https://url.app/](https://url.app/)
+Para visualizar a aplicação rodando online visite: [https://mytodoapp-ten.vercel.app/](https://mytodoapp-ten.vercel.app/)
 
 ## Scripts
 
