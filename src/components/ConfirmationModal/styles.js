@@ -31,6 +31,11 @@ text-align: center;
 font-size: 1.25rem;
 font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
+@media (min-width: 1024px) {
+	width: 30%;
+	padding: 2%;
+}
+
 svg {
 	font-size: 2rem;
 	color: #cf0000;
@@ -44,6 +49,11 @@ svg {
 	align-items: center;
 	justify-content: space-between;
 	margin: 0.75rem 0 0.75rem;
+
+	@media (min-width: 1024px) {
+		width: 50%;
+		justify-content: space-evenly;
+	}
 }
 `
 

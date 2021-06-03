@@ -12,6 +12,11 @@ justify-content: space-around;
 min-height: 25vh;
 font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 
+@media (min-width: 1024px) {
+	padding: 0 10% 0;
+	justify-content: space-evenly;
+}
+
 .header-title {
 	display: flex;
 	flex-flow: row nowrap;
@@ -23,6 +28,11 @@ font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida San
 	h1 {
 		margin-right: 5vw;
 		font-size: 2.25rem;
+		
+		@media (min-width: 1024px) {
+		margin-right: 0.5rem;
+		font-size: 2rem;
+		}
 	}
 
 	svg {
@@ -35,6 +45,10 @@ form {
 	display: flex;
 	flex-flow: column nowrap;
 	align-items: center;
+
+	@media (min-width: 1024px) {
+		width: 60%;
+		}
 }
 `
 
@@ -45,6 +59,10 @@ outline: none;
 width: 100%;
 border-radius: 0.3rem;
 font-size: 1rem;
+
+@media (min-width: 1024px) {
+	padding: 1% 3%;
+	}
 `
 
 export const SaveTodoButton = styled.button`
@@ -59,6 +77,7 @@ font-size: 1.15rem;
 font-weight: bold;
 cursor: pointer;
 margin-top: 1rem;
+
 
 &:hover{
 background-color:#00b62d;	

@@ -2,12 +2,16 @@ import styled from 'styled-components'
 
 export const MenuBar = styled.nav`
 width: 100%;
-background-color: lightblue;
 box-shadow: 1px 1px 10px gray;
 display: flex;
 flex-flow: row nowrap;
 align-items: center;
 justify-content: space-between;
+
+@media (min-width: 1024px) {
+	width: 60%;
+	margin: 0 auto;
+}
 `
 
 export const MenuButton = styled.button`
@@ -38,4 +42,18 @@ svg {
 	border-left: 1px solid #bbbbbb;
 	border-right: 1px solid #bbbbbb;
 }
+
+@media (min-width: 1024px) {
+	padding: 10px 0px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	svg {
+		font-size: 1.5rem;
+		margin-bottom: 10px;
+		margin-right: 0;
+	}
+	}
 `

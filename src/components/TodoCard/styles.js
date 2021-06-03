@@ -13,6 +13,12 @@ width: 90%;
 animation-name: opacity;
 animation-duration: 1s;
 
+@media (min-width: 1024px) {
+	padding: 2.5rem 5rem;
+	width: 60%;
+	height: 3vh;
+}
+
 @keyframes opacity {
 	0% {opacity: 0;}
 	50% {opacity: 0.5;}
